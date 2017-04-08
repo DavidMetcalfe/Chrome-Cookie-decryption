@@ -1,7 +1,7 @@
 import os.path
 from shutil import copy
 import sqlite3
-from datetime import datetime
+#from datetime import datetime
 
 import win32crypt
 
@@ -15,6 +15,8 @@ March 9 2017 '''
 
 
 def getCookieDB():
+    # Fetch the cookie DB and copy to local folder.
+    # This helps avoid access issues due to DB locking while Chrome is open.
     userhome = os.path.expanduser('~')
     destination = os.path.dirname(os.path.realpath(__file__))
 
@@ -33,15 +35,15 @@ cursor = conn.cursor()
 
 # Get the results
 cursor.execute('''
-    SELECT name, 
-    encrypted_value, 
-    host_key, 
-    path, 
-    secure, 
-    httponly, 
-    creation_utc, 
-    expires_utc 
-    FROM cookies 
+    SELECT name,
+    encrypted_value,
+    host_key,
+    path,
+    secure,
+    httponly,
+    creation_utc,
+    expires_utc
+    FROM cookies
     ORDER BY host_key
     ''')
 

@@ -6,7 +6,7 @@ This tool will fetch and decrypt the local database that cookies are stored in b
 
 ## Installation
 
-Open Command Prompt window in the script's directory, and paste the following to install the required modules:
+Open a Command Prompt window in the script's directory, and paste the following to install the required modules:
 
 **pip install -r requirements.txt**
 
